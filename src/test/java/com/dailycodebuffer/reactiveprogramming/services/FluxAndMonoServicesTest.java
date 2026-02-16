@@ -22,4 +22,12 @@ class FluxAndMonoServicesTest {
                 .expectNext("Mango")
                 .verifyComplete();
     }
+
+    @Test
+    void fruitsFluxMap() {
+        var fruitsFlux = fluxAndMonoServices.fruitsFluxMap();
+        StepVerifier.create(fruitsFlux)
+                .expectNext("MANGO", "ORANGE", "BANANA")
+                .verifyComplete();
+    }
 }
